@@ -24,6 +24,13 @@
             overflow-x: hidden;
         }
 
+        html,
+        body {
+            height: 100%;
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+        }
+
         header {
             height: 100vh;
             background: linear-gradient(to bottom, #000, #333);
@@ -33,6 +40,7 @@
             justify-content: center;
             flex-direction: column;
             text-align: center;
+            scroll-snap-align: start;
         }
 
         header h1 {
@@ -49,29 +57,15 @@
         }
 
         .section {
-            padding: 100px 20px;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            scroll-snap-align: start;
+            padding: 60px 20px;
             text-align: center;
-        }
-
-        .section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 36px;
-            color: #d4af37;
-            margin-bottom: 20px;
-        }
-
-        .section p {
-            font-size: 18px;
-            max-width: 700px;
-            margin: auto;
-        }
-
-        .quote {
-            font-style: italic;
-            margin: 40px auto;
-            font-size: 20px;
-            max-width: 600px;
-            color: #555;
+            background: linear-gradient(145deg, #1f1c2c, #928dab);
+            color: #f8f8f8;
         }
 
         .floating-heart {
@@ -88,98 +82,132 @@
             bottom: 20px;
             left: 20px;
         }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card,
+        .intro-content,
+        .signature-content {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 60px;
+            border-radius: 20px;
+            backdrop-filter: blur(8px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            animation: fadeInUp 2s ease;
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .card h2,
+        .intro-content h2,
+        .signature-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            color: #ffd700;
+            margin-bottom: 20px;
+        }
+
+        .card p,
+        .intro-content p,
+        .signature-content p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #fff;
+        }
+
+        .quote {
+            font-style: italic;
+            font-size: 24px;
+            color: #f1c40f;
+            margin-bottom: 40px;
+        }
+
+        .signature-name {
+            font-family: 'Great Vibes', cursive;
+            font-size: 32px;
+            color: #f8bbd0;
+            animation: fadeInUp 1.8s ease-out;
+        }
     </style>
 </head>
 
 <body>
-   <header>
-    <h1>Chúc Mừng Đám Cưới</h1>
-    <p>Gửi đến hai bạn <strong>[Tên chú rể]</strong> & <strong>[Tên cô dâu]</strong></p>
-</header>
+    <header>
+        <h1
+            style="font-family: 'Great Vibes', cursive; font-size: 72px; color: #e63946; text-shadow: 2px 2px 6px rgba(0,0,0,0.2); animation: fadeInDown 2s ease;">
+            Celebrating Eternal Love
+        </h1>
+        <p style="font-size: 24px; margin-top: 20px; color: #eee; animation: fadeInUp 2s ease;">
+            Dedicated to two beautiful souls – <br>
+            <strong style="color:#f8bbd0;">Mai Minh Ửng</strong> & <strong style="color:#f8bbd0;">Nguyễn Ngọc
+                Linh</strong><br><br>
+            <em>May this be the beginning of your forever 💍</em>
+        </p>
+    </header>
 
-<section class="section" id="intro">
-    <h2>Lời Chúc Từ [Tên bạn]</h2>
-    <p>
-        Hôm nay là ngày mà hai bạn bắt đầu hành trình mới – hành trình mang tên hôn nhân. 
-        Tớ thật sự hạnh phúc khi được chứng kiến khoảnh khắc thiêng liêng này.
-        Chúc hai bạn luôn nắm tay nhau qua mọi giông bão, cùng nhau xây dựng một tổ ấm đầy ắp tiếng cười, thấu hiểu và yêu thương!
-    </p>
-    <div class="quote">
-        “Hôn nhân không phải là nơi tình yêu kết thúc, mà là nơi nó bắt đầu trưởng thành.”
-    </div>
-</section>
+    <section class="section" id="intro">
+        <div class="card intro">
+            <h2>From Triết-kun</h2>
+            <p>
+                Today marks a beautiful beginning — the start of a journey not only filled with love, but also with
+                patience, growth, and shared dreams.<br><br>
+                Witnessing this moment warms my heart in the most unexpected ways. <strong>This one small hand-holding
+                    today will become a thousand to come</strong> — through sunshine, through storms, through every
+                season of life.<br><br>
+                I hope your home will always echo with laughter, stay bright late into the night with stories you can’t
+                stop telling, and remain a place of peace — where even silence feels full.
+            </p>
+        </div>
+    </section>
 
-<section class="section" id="wish">
-    <h2>Chúc cho...</h2>
-    <p>
-        💞 Tình yêu của hai bạn luôn vững bền theo năm tháng.<br>
-        🏡 Ngôi nhà nhỏ đầy ắp tiếng cười và niềm vui.<br>
-        👶 Một gia đình hạnh phúc, viên mãn và trọn vẹn.<br>
-        ✨ Và những điều tốt đẹp nhất sẽ luôn đồng hành cùng hai bạn trên hành trình phía trước!
-    </p>
-</section>
+    <section class="section" id="wish">
+        <div class="card wish">
+            <h2>My Wishes for You</h2>
+            <p>
+                💞 May your love deepen and blossom with every passing year.<br>
+                🏡 May your home be a haven filled with warmth and joy.<br>
+                👶 May your family grow in happiness, laughter, and little footsteps.<br>
+                ✨ May the stars always align for your love, and kindness guide every step forward.
+            </p>
+        </div>
+    </section>
 
-<section class="section" id="signature">
-    <p class="quote">Chúc mừng hai bạn lần nữa từ tận đáy lòng 💗</p>
-    <p style="margin-top: 40px; font-weight: bold;">Thân ái,<br>[Tên bạn]</p>
-</section>
+    <section class="section signature-section" id="signature">
+        <div class="signature-content">
+            <p class="quote">Wishing you both all the happiness in the world — from the bottom of my heart 💗</p>
+            <p class="signature-name">With warmest regards,<br>Triết-kun</p>
+        </div>
+    </section>
 
-
-    <!-- Nhạc nền piano -->
     <audio id="bgMusic" loop>
         <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
     </audio>
 
     <script>
-        const bgMusic = document.getElementById("bgMusic");
-        let musicStarted = false;
-
-        function startMusic() {
-            if (!musicStarted) {
-                bgMusic.play().catch(() => { });
-                musicStarted = true;
-            }
-        }
-
-        window.addEventListener("click", startMusic);
-        window.addEventListener("touchstart", startMusic);
-        window.addEventListener("scroll", startMusic);
-    </script>
-
-
-    <script>
-        // Hiệu ứng GSAP xuất hiện theo scroll
-        gsap.registerPlugin(ScrollTrigger);
-
-        gsap.from("#intro h2", {
-            scrollTrigger: "#intro",
-            y: 50,
-            opacity: 0,
-            duration: 1.2
-        });
-
-        gsap.from("#intro p", {
-            scrollTrigger: "#intro",
-            y: 80,
-            opacity: 0,
-            duration: 1.4
-        });
-
-        gsap.from("#details h2", {
-            scrollTrigger: "#details",
-            x: -100,
-            opacity: 0,
-            duration: 1.2
-        });
-
-        gsap.from("#details p", {
-            scrollTrigger: "#details",
-            x: 100,
-            opacity: 0,
-            duration: 1.2
-        });
-
-        // Tim bay ngẫu nhiên
         for (let i = 0; i < 20; i++) {
             let heart = document.createElement("div");
             heart.classList.add("floating-heart");
@@ -196,6 +224,31 @@
                 ease: "power1.inOut"
             });
         }
+
+        gsap.from("#intro", {
+            scrollTrigger: "#intro",
+            y: 100,
+            opacity: 0,
+            duration: 1.5,
+            ease: "power3.out"
+        });
+
+        gsap.from("#wish", {
+            scrollTrigger: "#wish",
+            x: -100,
+            opacity: 0,
+            duration: 1.5,
+            ease: "power3.out"
+        });
+
+        gsap.from("#signature", {
+            scrollTrigger: "#signature",
+            y: 100,
+            opacity: 0,
+            scale: 0.95,
+            duration: 1.6,
+            ease: "power2.out"
+        });
     </script>
 </body>
 
