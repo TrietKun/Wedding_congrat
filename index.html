@@ -207,6 +207,23 @@
         <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
     </audio>
 
+
+    <script>
+        const bgMusic = document.getElementById("bgMusic");
+        let musicStarted = false;
+
+        function startMusic() {
+            if (!musicStarted) {
+                bgMusic.play().catch(() => { });
+                musicStarted = true;
+            }
+        }
+
+        window.addEventListener("click", startMusic);
+        window.addEventListener("touchstart", startMusic);
+        window.addEventListener("scroll", startMusic);
+    </script>
+
     <script>
         for (let i = 0; i < 20; i++) {
             let heart = document.createElement("div");
